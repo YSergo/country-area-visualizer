@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.svg {
+  transition: opacity 1.2s;
+}
+.svg:hover {
+  opacity: 1;
+  transition: opacity 1;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
