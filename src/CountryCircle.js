@@ -38,7 +38,7 @@ const CountryCircles = () => {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <div style={{ marginBottom: "20px" }}>
+      <div style={{ marginBottom: "26.8px" }}>
         <button
           style={{
             fontSize: "20px",
@@ -71,8 +71,20 @@ const CountryCircles = () => {
         {getSortedCountries().map(({ name, area }) => (
           <div
             key={name}
-            style={{ textAlign: "center", cursor: "pointer" }}
-            onClick={() => toggleSelectCountry({ name, area })}
+            className="card"
+            style={{
+              textAlign: "center",
+              cursor: "pointer",
+              background: selectedCountries.some((c) => c.name === name) ? "#adadad18" : "transparent",
+              borderRadius: '10%',
+            }}
+            onClick={() => {
+              toggleSelectCountry({ name, area });
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }}
           >
             <svg width="388" height="388">
               <circle
@@ -81,7 +93,7 @@ const CountryCircles = () => {
                 cy="194"
                 r={(Math.round(Math.sqrt(area / Math.PI) / 12)) || 1}
                 fill="white"
-                opacity={selectedCountries.some((c) => c.name === name) ? 1 : 0.5}
+                opacity={selectedCountries.some((c) => c.name === name) ? 1 : 0.6}
               />
             </svg>
             <p>
